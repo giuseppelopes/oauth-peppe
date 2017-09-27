@@ -1,11 +1,11 @@
-package auth;
+package auth.service;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.springframework.stereotype.Service;
 
-import data.User;
+import auth.data.User;
 
 @Service("authServiceMockImpl")
 public class AuthServiceMock implements AuthService {

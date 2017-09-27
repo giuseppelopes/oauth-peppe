@@ -1,4 +1,4 @@
-package data;
+package auth.data;
 
 import java.util.HashMap;
 
