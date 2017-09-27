@@ -1,6 +1,7 @@
 package auth;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.springframework.stereotype.Service;
 
@@ -18,10 +19,14 @@ public class AuthServiceMock implements AuthService {
 		users.add(new User("fulano", "zaq1xsw2"));
 	}
 
-
-
 	@Override
 	public Boolean auth(String name, String pass) {
+		for (Iterator iterator = users.iterator(); iterator.hasNext();) {
+			User user = (User) iterator.next();
+			if (user.getName().equals(name) && user.getPass().equals(pass)){
+				return true;
+			}
+		}
 		return false;
 	}
 	
