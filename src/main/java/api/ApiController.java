@@ -3,24 +3,26 @@ package api;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import auth.AuthService;
 import data.User;
 
 @RestController
 public class ApiController {
 
-	private ArrayList<User> users;
+	@Autowired
+	@Qualifier("authServiceMockImpl")
+	private AuthService authService;
 	
     public ApiController() {
 		super();
-		this.users = new ArrayList<>();
-		users.add(new User("Giuseppe", "1qaz2wsx"));
-		users.add(new User("fulano", "zaq1xsw2"));
 	}
 
 	@RequestMapping("/")
