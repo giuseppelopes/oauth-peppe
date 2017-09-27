@@ -48,9 +48,9 @@ public class ApiController {
     	HashMap<String, String> output = new HashMap<String, String>();
     	
     	if (authService.auth(name, pass)){
-    		return new ResponseEntity("User authenticate ok", HttpStatus.FOUND);
+    		return new ResponseEntity("User authenticate ok", HttpStatus.OK);
     	} else {
-    		return new ResponseEntity("Not found", HttpStatus.NOT_FOUND);
+    		return new ResponseEntity("Not found", HttpStatus.UNAUTHORIZED);
     	}
     }
 
